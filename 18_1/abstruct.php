@@ -1,15 +1,37 @@
 <?php
 
-class Platform
+abstract class Platform
 {
-    public function getweels()
+    abstract protected function getWheels();
+    public function printWheels()
     {
-        return 4;
+        $this->getWheels();
     }
-
 }
 
 class Car extends Platform
 {
-
+    protected function getWheels()
+    {
+        return 4;
+    }
 }
+
+class Moto extends Platform {
+
+    public function getWheels()
+    {
+        return 2;
+    }
+}
+
+$car = new Car();
+$moto = new Moto();
+
+function echoWeels($obj)
+{
+    echo $obj->printWheels() . "<br />";
+}
+
+echoWeels($car);
+echoWeels($moto);
