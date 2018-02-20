@@ -43,5 +43,23 @@ class Book extends Core implements Colorable, Mark
 
 }
 
+class Marker
+{
+    public function mark(Mark $obj)
+    {
+        echo "Hello";
+    }
+}
+
 $book1 = new Book();
 Printer::newPrint($book1);
+
+class Table implements Colorable, Mark
+{
+    public function getColor()
+    {
+        return 'brown';
+    }
+}
+
+Printer::newPrint(new Table());
